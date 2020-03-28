@@ -9,11 +9,14 @@ class Main {
         LinkedListFactory factory = new LinkedListFactory();
         LinkedListOperations operations = new LinkedListOperations();
 
-        ListNode simpleLinkedList = factory.createLargeLinkedList();
-        ListNode reversedList = operations.swapPairsRecursively(simpleLinkedList);
+        ListNode largeLinkedList = factory.createLargeLinkedList();
+        ListNode reversedList = operations.swapPairsRecursively(largeLinkedList);
 
         LinkedListPrinter printer = new LinkedListPrinter();
-        printer.printList(reversedList);
+
+        ListNode smallLinkedList = factory.createSmallLinkList();
+        ListNode mergedList = operations.mergeLists(smallLinkedList, largeLinkedList);
+        printer.printListLinear(mergedList);
     }
 
 

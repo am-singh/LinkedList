@@ -5,6 +5,24 @@ package src;
  */
 public class LinkedListOperations {
 
+    ListNode mergeLists(ListNode l1, ListNode l2) {
+        ListNode prehead = new ListNode(-1);
+        ListNode newList = prehead;
+
+        while (l1 != null && l2 != null) {
+            if (l1.data < l2.data) {
+                newList.next = l1;
+                l1 = l1.next;
+            } else {
+                newList.next = l2;
+                l2 = l2.next;
+            }
+            newList = newList.next;
+        }
+        newList.next = l1 == null? l2: l1;
+        return prehead.next;
+    }
+
     /**
      * Time complexity : O(n) - length of list<br>
      * Space complexity: O(n) - extra space for the stack
